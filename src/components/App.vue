@@ -2,7 +2,7 @@
   <div>
     <div id="header">
       <div>
-        <h1>Vuejs Calendar 152</h1>
+        <h1>Vuejs Calendar</h1>
       </div>
       <calendar-month></calendar-month>
     </div>

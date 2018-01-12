@@ -15,10 +15,12 @@
       },
       classObject() {
         let today = this.day.isSame(this.$moment(), 'day')
+        let eventFormDate = this.$store.state.eventFormDate
         return {
           day: true,
           today: today,
-          past: this.day.isSameOrBefore(this.$moment() - 1, 'day') && !today
+          past: this.day.isSameOrBefore(this.$moment() - 1, 'day') && !today,
+          active: eventFormDate.isSame(this.day, 'day')
         }
       }
     },
@@ -26,6 +28,7 @@
       captureClick (event) {
         this.$store.commit('eventFormPos', { x: event.clientX, y: event.clientY })
         this.$store.commit('eventFormActive', true)
+        this.$store.commit('eventFormDate', this.day)
       }
     }
   }
